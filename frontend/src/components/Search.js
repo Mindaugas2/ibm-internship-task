@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
+import "./Search.scss";
 
 export default function Search() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -11,9 +12,9 @@ export default function Search() {
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3">
                 <Form.Label>Type in the company's symbol</Form.Label>
-                {errors.symbol?.type === "required" && <p>This field is required</p>}
-                {errors.symbol?.type === "maxLength" && <p>35 is the maximum amount of characters you may use</p>}
-                {errors.symbol?.type === "pattern" && <p>You can only input letters and spaces</p>}
+                {errors.symbol?.type === "required" && <p className='TextColor'>This field is required</p>}
+                {errors.symbol?.type === "maxLength" && <p className='TextColor'>35 is the maximum amount of characters you may use</p>}
+                {errors.symbol?.type === "pattern" && <p className='TextColor'>You can only input letters and spaces</p>}
                 <Form.Control
                     placeholder="Enter symbol"
                     {...register("symbol",
