@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import "./Search.scss";
 
 export default function Search() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
     const onSubmit = data => console.log(data);
 
     return (
