@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-export default function CompanyResult({ symbol }) {
+export default function CompanyInfo({ symbol }) {
     const [company, setCompany] = useState({});
     const apiToken = "cbubv7qad3i96b4mgrlg";
     const isInitialMount = useRef(true);

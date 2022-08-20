@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
 import "./SearchField.scss";
 
-export default function Search({ setSymbol }) {
+export default function Search({ setSymbol, setDateFrom, setDateTo }) {
     const {
         register,
         handleSubmit,
@@ -13,7 +13,12 @@ export default function Search({ setSymbol }) {
         mode: 'onSubmit',
         reValidateMode: 'onSubmit'
     });
-    const onSubmit = data => setSymbol(data.symbol);
+    const onSubmit = data => {
+        setSymbol(data.symbol);
+        // Convert date string to UNIX time format
+        setDateFrom(parseInt((new Date(data.dateFrom).getTime() / 1000).toFixed(0)));
+        setDateTo(parseInt((new Date(data.dateTo).getTime() / 1000).toFixed(0)));
+    };
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -32,6 +37,28 @@ export default function Search({ setSymbol }) {
                             required: true,
                             maxLength: 35,
                             pattern: /^[a-zA-Z\s]*$/
+                        })
+                    }
+                />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Date range for stock data</Form.Label>
+                <Form.Control
+                    type="date"
+                    {...register("dateFrom",
+                        {
+                            required: true
+                        })
+                    }
+                />
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Control
+                    type="date"
+                    {...register("dateTo",
+                        {
+                            required: true
                         })
                     }
                 />
