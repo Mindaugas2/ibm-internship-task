@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-export default function useFetch(symbol) {
+export default function useFetch(symbol, dateTo, dateFrom) {
     const [company, setCompany] = useState({});
     const apiToken = "cbubv7qad3i96b4mgrlg";
     const isInitialMount = useRef(true);

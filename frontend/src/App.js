@@ -12,31 +12,35 @@ function App() {
 
   return (
     <Container>
-      <Row>
-        <Col>
-          <h1>Check companies' stock prices</h1>
-        </Col>
-      </Row>
+      <header>
+        <Row>
+          <Col>
+            <h1>Check companies' stock prices</h1>
+          </Col>
+        </Row>
 
-      <Row>
-        <Col>
-          <SearchField
-            setSymbol={setSymbol}
-            setDateFrom={setDateFrom}
-            setDateTo={setDateTo}
-          />
-        </Col>
-      </Row>
+        <Row>
+          <Col>
+            <SearchField
+              setSymbol={setSymbol}
+              setDateFrom={setDateFrom}
+              setDateTo={setDateTo}
+            />
+          </Col>
+        </Row>
+      </header>
 
-      <Row className="mt-4">
-        <Col>
-          <CompanyResults
-            symbol={symbol}
-            dateFrom={dateFrom}
-            dateTo={dateTo}
-          />
-        </Col>
-      </Row>
+      <main>
+        <Row className="mt-4">
+          <Col>
+            <CompanyResults
+              symbol={symbol}
+              dateFrom={dateFrom}
+              dateTo={dateTo}
+            />
+          </Col>
+        </Row>
+      </main>
     </Container>
   );
 }
