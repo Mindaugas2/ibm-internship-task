@@ -14,13 +14,13 @@ function App() {
     <Container>
       <header>
         <Row>
-          <Col>
+          <Col sm={4}>
             <h1>Check companies' stock prices</h1>
           </Col>
         </Row>
 
         <Row>
-          <Col>
+          <Col sm={4}>
             <SearchField
               setSymbol={setSymbol}
               setDateFrom={setDateFrom}

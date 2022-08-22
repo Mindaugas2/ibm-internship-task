@@ -6,9 +6,10 @@ export default function CompanyGraph({ symbol, dateFrom, dateTo }) {
     const { chartData } = useFetch(symbol, dateFrom, dateTo);
     const chartContainerRef = useRef();
     const isInitialMount = useRef(true);
+    let noChartData = false;
 
     // Make sure the array is populated before running any functions
-    if (Object.keys(chartData).length !== 0) {
+    if (Object.values(chartData).includes("ok")) {
         // Convert the object of arrays into an array of objects
         var result = Object.values(chartData)[0].map((s, i) => {
             let obj = {};
@@ -33,6 +34,8 @@ export default function CompanyGraph({ symbol, dateFrom, dateTo }) {
             delete obj.t;
             delete obj.v;
         });
+    } else if (Object.values(chartData).includes("no_data")) {
+        noChartData = !noChartData;
     }
 
     useEffect(() => {
@@ -76,5 +79,12 @@ export default function CompanyGraph({ symbol, dateFrom, dateTo }) {
         }
     }, [result]);
 
-    return <div ref={chartContainerRef} />;
+    return (
+        <>
+            <div ref={chartContainerRef} />
+            {noChartData &&
+                <b>No chart data exists for such time period.</b>
+            }
+        </>
+    );
 }
