@@ -28,7 +28,7 @@ export default function useFetch(symbol, dateFrom, dateTo) {
             };
             fetchChartData();
         }
-    }, [symbol]);
+    }, [symbol, dateFrom, dateTo]);
 
     return { company, chartData };
 }
