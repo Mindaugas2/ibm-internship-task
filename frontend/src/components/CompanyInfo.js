@@ -7,7 +7,12 @@ export default function CompanyInfo({ symbol }) {
 
     return (
         <>
-            <Link to="/chart">{company.name}</Link>
+            <Link
+                to="/chart"
+                onClick={() => console.log("Chicken")}
+            >
+                {company.name}
+            </Link>
             <p>{company.country}</p>
             <p>{company.currency}</p>
             <p>{company.weburl}</p>

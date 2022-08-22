@@ -16,8 +16,8 @@ export default function Search({ setSymbol, setDateFrom, setDateTo }) {
     const onSubmit = data => {
         setSymbol(data.symbol);
         // Convert date string to UNIX time format
-        setDateFrom(parseInt((new Date(data.dateFrom).getTime() / 1000).toFixed(0)));
-        setDateTo(parseInt((new Date(data.dateTo).getTime() / 1000).toFixed(0)));
+        setDateFrom((new Date(data.dateFrom).getTime() / 1000).toFixed(0));
+        setDateTo((new Date(data.dateTo).getTime() / 1000).toFixed(0));
     };
 
     return (
