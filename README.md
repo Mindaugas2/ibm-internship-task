@@ -1,6 +1,3 @@
-# ibm-internship-task
-A task for JavaScript Application Developer internship at IBM
-
 ## How to make it run
 <img src="https://i.imgur.com/mpwPCYf.png" alt="Example" width="700">
 
