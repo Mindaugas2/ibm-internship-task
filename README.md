@@ -1,3 +1,5 @@
+# Display company's stock data in a form of a chart based on date range
+
 ## How to make it run
 <img src="https://i.imgur.com/mpwPCYf.png" alt="Example" width="700">
 
